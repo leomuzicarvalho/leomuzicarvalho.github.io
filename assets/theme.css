@@ -1,0 +1,98 @@
+/* Theme: every colour, font and size the deck uses.
+   Change the look here. Layout and slide mechanics live in deck.css.
+   Sizes are canvas pixels: the slide is a 1600 × 900 canvas scaled to fit the window,
+   so 64px here is 64px on a 1600-wide slide, like in Keynote or Figma.
+
+   Colours come from the old leomuzicarvalho.github.io: the dark matrix hero, the
+   #74e3f2 link cyan, and the mint / cyan / sky hexagons of the old logo. */
+
+/* Dark (default) */
+:root {
+  color-scheme: dark;
+
+  --backdrop: #0d1112;   /* around the slide when the window isn't 16:9 */
+  --paper: #0d1112;      /* slide background */
+  --ink: #eef3f2;        /* main text */
+  --ink-soft: #b3bfbd;   /* secondary text */
+  --ink-muted: #76827f;  /* labels, footer */
+  --rule: #233031;       /* hairlines */
+  --accent: #74e3f2;     /* old site link cyan */
+  --accent-2: #30e79d;   /* old logo mint, for "now" */
+
+  --mark-top: #30e79d;   /* old logo hexagon colours */
+  --mark-right: #30c4e7;
+  --mark-left: #30e7e7;
+}
+
+/* Light, built from the old site's #eee page and #0a0a0a / #4a4a4a text */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --backdrop: #eeeeee;
+  --paper: #eeeeee;
+  --ink: #0a0a0a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #6b6b6b;
+  --rule: #d6d6d6;
+  --accent: #0d7987;     /* the old cyan, darkened so text stays readable on light */
+  --accent-2: #00947e;
+}
+
+:root {
+  /* Type */
+  --font-display: ui-serif, "New York", Georgia, serif;
+  --font-text: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --weight-display: 400;
+  --weight-strong: 600;
+  --tracking-display: -0.02em;
+  --tracking-caps: 0.12em;
+
+  --fs-hero: 168px;
+  --fs-statement: 76px;
+  --fs-title: 64px;
+  --fs-figure: 96px;
+  --fs-lead: 38px;
+  --fs-body: 27px;
+  --fs-small: 19px;
+
+  /* Space */
+  --pad-x: 120px;
+  --pad-y: 100px;
+  --pad-foot: 40px;
+  --gap-s: 16px;
+  --gap-m: 32px;
+  --gap-l: 56px;
+  --gap-xl: 88px;
+  --rule-w: 1px;
+  --progress-h: 3px;
+
+  /* Motion: the old slide fades out, then the new one's pieces rise in one after another */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-out: 320ms;
+  --dur-in: 600ms;
+  --dur-reveal: 900ms;
+  --delay-in: 140ms;
+  --stagger: 75ms;
+  --rise: 22px;
+  --dur-theme: 500ms;
+}
+
+/* Phones and narrow windows switch to a 640 × 1200 portrait canvas (see deck.css) */
+@media screen and (max-aspect-ratio: 3/4) {
+  :root {
+    --fs-hero: 92px;
+    --fs-statement: 52px;
+    --fs-title: 50px;
+    --fs-figure: 64px;
+    --fs-lead: 32px;
+    --fs-body: 25px;
+    --fs-small: 19px;
+
+    --pad-x: 48px;
+    --pad-y: 72px;
+    --pad-foot: 28px;
+    --gap-m: 24px;
+    --gap-l: 40px;
+    --gap-xl: 56px;
+  }
+}
